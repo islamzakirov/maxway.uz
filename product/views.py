@@ -9,6 +9,7 @@ from rest_framework.authentication import BaseAuthentication
 from rest_framework import filters
 from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.permissions import IsAuthenticated
 
 class BurgerViewSet(viewsets.ModelViewSet):
     queryset = Burger.objects.all()
@@ -24,3 +25,13 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
 class BurgerNumberPaginations(PageNumberPagination):
     page_size = 3
+
+class CardItemViewSet(viewsets.ModelViewSet):
+    queryset = CardItem.objects.all()
+    serializer_class = CardItemSerializer        
+    permission_classes = [IsAuthenticated]
+
+class CardViewSet(viewsets.ModelViewSet):
+    queryset = Card.objects.all()
+    serializer_class = CardSerializer
+    permission_classes = [IsAuthenticated]
