@@ -50,7 +50,7 @@ router.register('category', CategoryViewSet)
 router.register('cardItem', CardItemViewSet)
 router.register('card', CardViewSet)
 router.register('contact', AloqaViewSet)
-router.register('gallery', GalleryViewSet)
+# router.register('gallery', GalleryViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
