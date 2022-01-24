@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'drf_yasg',
     'knox',
     'account',
-    'product'
+    'product',
+    'contact',
+    'gallery'
 ]
 
 MIDDLEWARE = [
@@ -85,8 +87,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'maxway.wsgi.application'
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 3,
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    # 'PAGE_SIZE': 3,
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
@@ -96,7 +98,7 @@ REST_FRAMEWORK = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+         'NAME': str(os.path.join(BASE_DIR, "db.sqlite3"))
     }
 }
 
@@ -141,7 +143,7 @@ STATIC_URL = '/static/'
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static-files')
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 
 # STATIC_ROOT = os.path.join(BASE_DIR,'static-files')
